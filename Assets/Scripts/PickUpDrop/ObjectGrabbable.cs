@@ -13,6 +13,7 @@ public class ObjectGrabbable : MonoBehaviour {
     [SerializeField] private Transform cameraPositionTransform;
     [SerializeField] private LayerMask objectHoverLayers;
     [SerializeField] private LayerMask objectPlacementLayers;
+    [SerializeField] private LayerMask ignoredLayers;
     [SerializeField] private float lerpSpeed = 2f;
     [SerializeField] private float pickUpDistance = 5f;
 
@@ -35,8 +36,6 @@ public class ObjectGrabbable : MonoBehaviour {
         isGrabbing = true;
         coll.isTrigger = true;
         rb.useGravity = false;
-        // meshRenderer.material = ghostMaterialValid;
-
         if (ghostMaterialValid != null) {
             initialMaterials.Clear();
             foreach (MeshRenderer meshRenderer in GetComponentsInChildren<MeshRenderer>()) {
@@ -44,21 +43,15 @@ public class ObjectGrabbable : MonoBehaviour {
                 meshRenderer.material = ghostMaterialValid;
             }
         }
-        // rb.isKinematic = false;
     }
 
     public void Drop() {
         if (canPlaceObject) {
-
             transform.position = newPlacementPosition;
-
             isGrabbing = false;
             coll.isTrigger = false;
-            // rb.isKinematic = false;
             rb.useGravity = true;
 
-
-            // meshRenderer.material = initialMaterial;
             foreach (MeshRenderer meshRenderer in GetComponentsInChildren<MeshRenderer>()) {
                 foreach (Material material in initialMaterials) {
                     meshRenderer.material = material;
@@ -72,8 +65,6 @@ public class ObjectGrabbable : MonoBehaviour {
             Collider collider = GetComponent<Collider>();
             float height = collider.bounds.size.y / 2;
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, pickUpDistance, objectHoverLayers)) {
-
-
                 Vector3 newPosition = new Vector3(hit.point.x, hit.point.y + height, hit.point.z);
                 newPlacementPosition = newPosition;
                 Vector3 newPositionLerp = Vector3.Lerp(transform.position, newPosition, Time.fixedDeltaTime * lerpSpeed);
@@ -96,47 +87,32 @@ public class ObjectGrabbable : MonoBehaviour {
 
                 foreach (Transform child in connectionPoint.transform) {
                     RaycastHit pointHit;
-                    // Aþaðý yönde, sadece belirli bir layer ile raycast çiz
                     if (Physics.Raycast(child.position, Vector3.down, out pointHit, 2f, objectPlacementLayers)) {
                         Debug.Log(child.name + " çarptýðý obje: " + pointHit.collider.gameObject.name + ", Mesafe: " + pointHit.distance);
-                        Debug.DrawRay(child.position, Vector3.down * pointHit.distance, Color.green); // Çarpýþma olduðunda yeþil çizgi çiz
+                        Debug.DrawRay(child.position, Vector3.down * pointHit.distance, Color.green);
                     } else {
-                        Debug.Log(child.name + " hedef layer ile çarpýþmadý.");
-                        Debug.DrawRay(child.position, Vector3.down * 100, Color.red); // Çarpýþma olmadýðýnda kýrmýzý çizgi çiz
-                        allHitTargetLayer = false; // En az bir çocuk hedef layer ile çarpýþmadý
+                        Physics.Raycast(child.position, Vector3.down, out pointHit, 2f);
+                        Debug.Log(child.name + " hedef layer ile çarpýþmadý." + "ÇARPTIÐI NESNE: " + pointHit.transform.gameObject.name);
+                        Debug.DrawRay(child.position, Vector3.down * 100, Color.red);
+                        allHitTargetLayer = false;
                     }
                 }
-
-                // Tüm çocuklarýn hedef layer ile çarpýþýp çarpýþmadýðýný kontrol et
                 if (allHitTargetLayer) {
                     MakeObjectPlacable();
                 } else {
                     MakeObjectUnavailable();
                 }
             }
-
-            /*if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f, objectPlacementLayers)) {
-                MakeObjectPlacable();
-            } else {
-                MakeObjectUnavailable();
-            }*/
         }
     }
 
     private void OnTriggerStay(Collider collider) {
-        if ((objectPlacementLayers.value & (1 << collider.gameObject.layer)) == 0) {
+        if (isGrabbing && ((objectPlacementLayers.value & (1 << collider.gameObject.layer)) == 0) && ((ignoredLayers.value & (1 << collider.gameObject.layer)) == 0)) {
             //MakeObjectPlacable();
             MakeObjectUnavailable();
             Debug.Log("exit" + collider.gameObject.layer);
         } 
     }
-
-/*    private void OnTriggerExit(Collider collider) {
-        if (collider.tag != "Player" || (((1 << collider.gameObject.layer) & objectPlacementLayers.value) == 0)) {
-            MakeObjectUnavailable();
-            Debug.Log("exit" + collider.gameObject.layer);
-        }
-    }*/
 
     private void MakeObjectPlacable() {
         canPlaceObject = true;

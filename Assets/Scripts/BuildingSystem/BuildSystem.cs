@@ -12,19 +12,18 @@ public class BuildSystem : MonoBehaviour {
     private GameObject ghostBuildGameObject;
 
     private bool isBuilding = false;
-    [SerializeField] private float connectorOverlapRadius = 1;
+    [SerializeField] private float connectorOverlapRadius = 1f;
 
     private void Update() {
-        // 'B' tuþuna basýldýðýnda inþa modunu aktif et
         if (Input.GetKeyDown(KeyCode.B)) {
             isBuilding = !isBuilding;
 
             if (isBuilding && ghostBuildGameObject == null) {
                 ghostBuildGameObject = Instantiate(wallObject);
-                Rigidbody rb = ghostBuildGameObject.transform.GetChild(0).GetComponent<Rigidbody>();
-                rb.useGravity = false;
-                rb.isKinematic = true;
-
+                Collider[] colliders = ghostBuildGameObject.GetComponentsInChildren<Collider>();
+                foreach(Collider coll in colliders) {
+                    coll.isTrigger = true;
+                }
             }
              
             if (!isBuilding) {
@@ -33,59 +32,19 @@ public class BuildSystem : MonoBehaviour {
             }
         }
 
-        // Ýnþa modu aktifse
-       
-    }
-
-
-    public void FixedUpdate() {
         if (isBuilding) {
-
-            /*if (ghostBuildGameObject == null) {
-                ghostBuildGameObject = Instantiate(wallObject);
-                *//*if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit firstPoint, placeDistance)) {
-                    ghostBuildGameObject.transform.position = firstPoint.point;
-                }*//*
-                // ghostBuildGameObject.GetComponent<Rigidbody>().useGravity = false;
-            }*/
             Collider collider = ghostBuildGameObject.transform.GetChild(0).GetComponent<Collider>();
             // float height = collider.bounds.size.y / 2;
-            float height = 0;
+            // float height = 0;
 
-            // Kameranýn baktýðý noktadan 5f mesafeye bir raycast çek
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, placeDistance)) {
-
-                Vector3 newPosition = new Vector3(hit.point.x, hit.point.y + height, hit.point.z);
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, placeDistance)) {
+                Vector3 newPosition = new Vector3(hit.point.x, hit.point.y, hit.point.z);
                 Vector3 newPositionLerp = Vector3.Lerp(transform.position, newPosition, Time.fixedDeltaTime * lerpSpeed);
-                 ghostBuildGameObject.transform.position = newPosition;
-                //ghostBuildGameObject.GetComponent<Rigidbody>().MovePosition(newPositionLerp);
-                // Raycast bir þeyle çarparsa, çarptýðý noktada duvar objesini instantiate et
-
-                // Instantiate(wallObject, hit.point, Quaternion.identity);
-                // MoveGhostPrefabToRaycast();
-                // Ýnþa iþlemi tamamlandýktan sonra isBuilding'i false yap
-            }
-
-            Collider[] colliders = Physics.OverlapSphere(ghostBuildGameObject.transform.position, connectorOverlapRadius, replacableLayers);
-            if (colliders.Length > 0) {
-                BuildConnector bestConnector = null;
-
-                foreach (Collider coll in colliders) {
-                    // Debug.Log("coll" + coll.gameObject.name);
-                    BuildConnector connector = coll.GetComponent<BuildConnector>();
-                    if (connector != null && connector.canConnectTo) {
-                        Debug.Log("connector found");
-                    }
-                }
-
-/*                if (bestConnector == null) {
-                    GhostifyModel(ModelParent, ghostMaterialInvalid);
-                    isGhostInValidPosition = false;
-                    return;
-                }*/
+                ghostBuildGameObject.transform.position = hit.point;
             }
         }
     }
+
     private void MoveGhostPrefabToRaycast() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
