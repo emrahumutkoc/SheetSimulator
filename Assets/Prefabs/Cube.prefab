@@ -215,10 +215,13 @@ MonoBehaviour:
   cameraPositionTransform: {fileID: 0}
   objectHoverLayers:
     serializedVersion: 2
-    m_Bits: 639
+    m_Bits: 575
   objectPlacementLayers:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 512
+  ignoredLayers:
+    serializedVersion: 2
+    m_Bits: 64
   lerpSpeed: 6
   pickUpDistance: 5
   connectionPoint: {fileID: 6984748982327670083}

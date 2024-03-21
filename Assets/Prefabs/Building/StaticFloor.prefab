@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 120276232358892575}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,7 +104,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7778564434155187405
 MonoBehaviour:
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab85fd6a9179834da192cf03c283e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorPosition: 3
+  connectorPosition: 0
   connectorParentType: 0
   isConnectedToFloor: 0
   isConnectedToWall: 0
@@ -154,7 +154,7 @@ Transform:
   m_GameObject: {fileID: 1856069115610698253}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -229,7 +229,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5912688559421387540
 MonoBehaviour:
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab85fd6a9179834da192cf03c283e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorPosition: 2
+  connectorPosition: 0
   connectorParentType: 0
   isConnectedToFloor: 0
   isConnectedToWall: 0
@@ -279,7 +279,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 0.1, z: 2}
+  m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1375660270097831675}
@@ -417,7 +417,7 @@ Transform:
   m_GameObject: {fileID: 3585540209455379533}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: -0.000000119209275}
+  m_LocalPosition: {x: -0.5, y: 0, z: -0.00000017881392}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -492,7 +492,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7526539623765263227
 MonoBehaviour:
@@ -542,7 +542,7 @@ Transform:
   m_GameObject: {fileID: 6526575372874011290}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: 0.000000119209275}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0.00000017881392}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -617,7 +617,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2981913941834636109
 MonoBehaviour:
@@ -631,7 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab85fd6a9179834da192cf03c283e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorPosition: 1
+  connectorPosition: 0
   connectorParentType: 0
   isConnectedToFloor: 0
   isConnectedToWall: 0
