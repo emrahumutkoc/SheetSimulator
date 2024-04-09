@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab85fd6a9179834da192cf03c283e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorPosition: 0
+  connectorPosition: 3
   connectorParentType: 0
   isConnectedToFloor: 0
   isConnectedToWall: 0
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab85fd6a9179834da192cf03c283e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorPosition: 0
+  connectorPosition: 2
   connectorParentType: 0
   isConnectedToFloor: 0
   isConnectedToWall: 0
@@ -631,7 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab85fd6a9179834da192cf03c283e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorPosition: 0
+  connectorPosition: 1
   connectorParentType: 0
   isConnectedToFloor: 0
   isConnectedToWall: 0

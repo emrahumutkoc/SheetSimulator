@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85517989715c8e746912d9643efe1086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainInventoryGroup: {fileID: 0}
   inventory: {fileID: 0}
   sensX: 200
   sensY: 200

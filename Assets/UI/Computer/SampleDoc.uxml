@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Label text="TESTTTTooo" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-background-image-tint-color: rgb(255, 0, 0); background-color: rgba(255, 0, 0, 0);" />
+    <ui:Button text="Dünyadaki bir arayüz yes be!" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-text-align: upper-center; -unity-background-image-tint-color: rgb(241, 28, 28); background-color: rgb(97, 212, 73);" />
+</ui:UXML>

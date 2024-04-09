@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectGrabbable : MonoBehaviour {
+public class VerticalGrabbable : MonoBehaviour {
 
     public bool isGrabbing = false;
     [Header("Ghost Settings")]
@@ -11,6 +11,7 @@ public class ObjectGrabbable : MonoBehaviour {
 
     [Header("Pick Up Settings")]
     [SerializeField] private Transform cameraPositionTransform;
+    // [SerializeField] private Transform offsetToPlacementPoint;
     [SerializeField] private LayerMask objectHoverLayers;
     [SerializeField] private LayerMask objectPlacementLayers;
     [SerializeField] private LayerMask ignoredLayers;
@@ -18,7 +19,7 @@ public class ObjectGrabbable : MonoBehaviour {
     [SerializeField] private float pickUpDistance = 5f;
     [SerializeField] private ReplacementDirection direction = ReplacementDirection.down;
 
-    [SerializeField] private GameObject connectionPoint;
+    [SerializeField] private GameObject connectionPoints;
     [SerializeField] private Transform placementPoint;
 
 
@@ -50,7 +51,26 @@ public class ObjectGrabbable : MonoBehaviour {
 
     public void Drop() {
         if (canPlaceObject) {
-            transform.position = newPlacementPosition;
+            PlaceObject();
+            return;
+        }
+
+        isGrabbing = false;
+        coll.isTrigger = false;
+        rb.useGravity = true;
+        // rb.isKinematic = false;
+        canPlaceObject = false;
+
+        foreach (MeshRenderer meshRenderer in GetComponentsInChildren<MeshRenderer>()) {
+            foreach (Material material in initialMaterials) {
+                meshRenderer.material = material;
+            }
+        }
+    }
+
+    public void PlaceObject() {
+        if (canPlaceObject) {
+            // transform.position = newPlacementPosition;
             isGrabbing = false;
             coll.isTrigger = false;
             rb.useGravity = true;
@@ -65,51 +85,43 @@ public class ObjectGrabbable : MonoBehaviour {
 
     private void FixedUpdate() {
         if (isGrabbing) {
-            Vector3 directionOfRay = direction == ReplacementDirection.down ? Vector3.down : gameObject.transform.forward;
+            Vector3 offsetToPlacementPoint = transform.position - placementPoint.position;
 
-            Collider collider = GetComponent<Collider>();
-            float height = collider.bounds.size.y / 2;
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, pickUpDistance, objectHoverLayers)) {
-                Vector3 newPosition = new Vector3(hit.point.x, hit.point.y + height, hit.point.z);
-                newPlacementPosition = newPosition;
-                Vector3 newPositionLerp = Vector3.Lerp(transform.position, newPosition, Time.fixedDeltaTime * lerpSpeed);
+       /*     Collider collider = GetComponent<Collider>();
+            float height = 0f;*/
+            if (Physics.Raycast(cameraPositionTransform.transform.position, cameraPositionTransform.transform.forward, out RaycastHit hit, pickUpDistance, objectHoverLayers)) {
+                Vector3 placementPosition = hit.point + offsetToPlacementPoint;
+                /*Quaternion targetRotation = Quaternion.LookRotation(hit.normal);
+                targetRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y + 180f, 0);
+                gameObject.transform.rotation = targetRotation;*/
+
+                // Vector3 newPosition = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+                // newPlacementPosition = newPosition;
+                Vector3 newPositionLerp = Vector3.Lerp(transform.position, placementPosition, Time.fixedDeltaTime * lerpSpeed);
                 rb.MovePosition(newPositionLerp);
             } else {
-                Vector3 forwardPosition = Camera.main.transform.position + Camera.main.transform.forward * pickUpDistance;
+                Vector3 forwardPosition = cameraPositionTransform.transform.position + cameraPositionTransform.transform.forward * pickUpDistance;
                 int layerMask = 1 << LayerMask.NameToLayer("Grabbable");
                 layerMask = ~layerMask;
-                if (Physics.Raycast(forwardPosition, directionOfRay, out RaycastHit hitInfo, pickUpDistance, layerMask)) {
-
-                    Vector3 hitPoint = new Vector3(hitInfo.point.x, hitInfo.point.y + height, hitInfo.point.z);
-                    newPlacementPosition = hitPoint;
-                    /*if (direction == ReplacementDirection.down) {
-                        hitPoint.y = hitPoint.y + 0.1f;
-                    } else {
-                        hitPoint.x = hit
-                    }*/
-                    Vector3 newPositionLerp = Vector3.Lerp(transform.position, hitPoint, Time.fixedDeltaTime * lerpSpeed);
+                if (Physics.Raycast(forwardPosition, Vector3.down, out RaycastHit hitInfo, pickUpDistance, layerMask)) {
+                    Vector3 placementPosition = hitInfo.point + offsetToPlacementPoint;
+                    Vector3 newPositionLerp = Vector3.Lerp(transform.position, placementPosition, Time.fixedDeltaTime * lerpSpeed);
                     rb.MovePosition(newPositionLerp);
                 }
             }
 
-            // Vector3 directionOfRay = direction == ReplacementDirection.down ? Vector3.down : gameObject.transform.forward;
-
-          
-            /*Quaternion targetRotation = Quaternion.LookRotation(newPlacementPosition);
-            gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, targetRotation, Time.fixedDeltaTime * lerpSpeed);
-*/
-            if (connectionPoint != null) {
+            if (connectionPoints != null) {
                 bool allHitTargetLayer = true;
 
-                foreach (Transform child in connectionPoint.transform) {
+                foreach (Transform child in connectionPoints.transform) {
                     RaycastHit pointHit;
-                    if (Physics.Raycast(child.position, directionOfRay, out pointHit, 1f, objectPlacementLayers)) {
-                        Debug.Log(child.name + " çarptýðý obje: " + pointHit.collider.gameObject.name + ", Mesafe: " + pointHit.distance);
-                        Debug.DrawRay(child.position, directionOfRay * pointHit.distance, Color.green);
+                    if (Physics.Raycast(child.position, Vector3.down, out pointHit, 1f, objectPlacementLayers)) {
+                        // Debug.Log(child.name + " çarptýðý obje: " + pointHit.collider.gameObject.name + ", Mesafe: " + pointHit.distance);
+                        Debug.DrawRay(child.position, Vector3.down * pointHit.distance, Color.green);
                     } else {
-                        Physics.Raycast(child.position, directionOfRay, out pointHit, 2f);
+                        Physics.Raycast(child.position, Vector3.down, out pointHit, 2f);
                         // Debug.Log(child.name + " hedef layer ile çarpýþmadý." + "ÇARPTIÐI NESNE: " + pointHit.transform.gameObject.name);
-                        Debug.DrawRay(child.position, directionOfRay * 100, Color.red);
+                        Debug.DrawRay(child.position, Vector3.down * 100, Color.red);
                         allHitTargetLayer = false;
                     }
                 }
@@ -126,8 +138,7 @@ public class ObjectGrabbable : MonoBehaviour {
         if (isGrabbing && ((objectPlacementLayers.value & (1 << collider.gameObject.layer)) == 0) && ((ignoredLayers.value & (1 << collider.gameObject.layer)) == 0)) {
             //MakeObjectPlacable();
             MakeObjectUnavailable();
-            Debug.Log("exit" + collider.gameObject.layer);
-        } 
+        }
     }
 
     private void MakeObjectPlacable() {

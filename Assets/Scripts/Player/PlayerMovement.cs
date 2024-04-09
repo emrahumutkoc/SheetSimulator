@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour {
     Vector3 moveDirection;
 
     Rigidbody rb;
+    private bool isLocked = false;
 
     public MovementState state;
 
@@ -57,22 +58,26 @@ public class PlayerMovement : MonoBehaviour {
         startYScale = transform.localScale.y;
     }
     private void Update() {
-        // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        if (!isLocked) {
+            // ground check
+            grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
-        MyInput();
-        SpeedControl();
-        StateHandler();
+            MyInput();
+            SpeedControl();
+            StateHandler();
 
-        // handle drag
-        if (grounded)
-            rb.drag = groundDrag;
-        else
-            rb.drag = 0;
+            // handle drag
+            if (grounded)
+                rb.drag = groundDrag;
+            else
+                rb.drag = 0;
+        }
     }
 
     private void FixedUpdate() {
-        MovePlayer();
+        if (!isLocked) {
+            MovePlayer();
+        }
     }
 
     private void MyInput() {
@@ -152,5 +157,13 @@ public class PlayerMovement : MonoBehaviour {
 
     private void ResetJump() {
         readyToJump = true;
+    }
+
+    public void SetLockModeOn() {
+        isLocked = true;
+    }
+
+    public void SetLockModeOff() {
+        isLocked = false;
     }
 }
