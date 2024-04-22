@@ -9,12 +9,14 @@ public class ComputerManager : MonoBehaviour {
     [SerializeField] private Transform camPos;
     [SerializeField] private Transform orientation;
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private PlayerCam playerCam;
     private bool isZooming = false;
     private bool isZoomed = false;
     private Coroutine currentZoomCoroutine;
 
     private void Update() {
         if (isZoomed && Input.GetMouseButtonDown(1)) {
+            playerCam.SetTempFov();
             if (!isZooming && currentZoomCoroutine != null) {
                 StopCoroutine(currentZoomCoroutine);
                 isZooming = false; // Zoom durumunu güncelle
@@ -26,6 +28,7 @@ public class ComputerManager : MonoBehaviour {
     private void OnMouseDown() {
         if (!isZoomed) {
             SetPlayerPosition();
+            playerCam.SetDefaultFOV();
 
             if (!isZooming) {
                 mainCamera.transform.rotation = Quaternion.LookRotation(screenLookAtPosition.forward * -1f);
@@ -41,7 +44,7 @@ public class ComputerManager : MonoBehaviour {
         yield return currentZoomCoroutine = StartCoroutine(MoveToPosition(camPos.transform.position, 0.5f)); // Hedefe zoom yap
         mainCamera.transform.rotation = Quaternion.LookRotation(screenLookAtPosition.forward * -1f);
         player.GetComponent<PlayerMovement>().SetLockModeOff();
-        mainCamera.GetComponent<PlayerCam>().SetCamFree();
+        mainCamera.GetComponent<PlayerCam>().SetCamFreeWithoutRotation();
         isZooming = false;
         isZoomed = false;
         SetPlayerPosition();

@@ -44,12 +44,38 @@ public class VerticalObjectPlacementManager : MonoBehaviour {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
         if (Input.GetKeyDown(KeyCode.R) && lastVerticalObject != null) {
-            lastVerticalObject.transform.Rotate(0, 90f, 0f, Space.World);
-
+            // lastVerticalObject.transform.Rotate(0, 90f, 0f, Space.World);
+            float currentYRotation = lastVerticalObject.transform.eulerAngles.y;
+            float newYRotation = currentYRotation + 90f;
+            newYRotation = Mathf.Round(newYRotation / 90f) * 90f;
+            lastVerticalObject.transform.eulerAngles = new Vector3(0, newYRotation, 0);
         }
+
         if (lastVerticalObject != null && scroll != 0f) {
             float yRotation = scroll * rotationSensivity;
             lastVerticalObject.transform.Rotate(0f, yRotation, 0f, Space.World);
         }
     }
+
+    private float NormalizeAndRoundRotation(float rotation) {
+        // Normalize the rotation to be within 0-360 degrees
+        rotation = rotation % 360;
+        if (rotation < 0) rotation += 360;
+
+        // Determine the closest of the four target angles (0, 90, 270, 360)
+        float[] targetAngles = { 0, 90, 270, 360 };
+        float closestAngle = targetAngles[0];
+        float smallestDifference = Mathf.Abs(rotation - closestAngle);
+
+        foreach (float targetAngle in targetAngles) {
+            float difference = Mathf.Abs(rotation - targetAngle);
+            if (difference < smallestDifference) {
+                closestAngle = targetAngle;
+                smallestDifference = difference;
+            }
+        }
+
+        return closestAngle;
+    }
+
 }

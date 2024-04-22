@@ -43,8 +43,11 @@ public class HorizantalObjectPlacementManager : MonoBehaviour {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
         if (Input.GetKeyDown(KeyCode.R) && lastHorizantalObject != null) {
-            lastHorizantalObject.transform.Rotate(0f, 90f, 0f, Space.World);
-
+            // lastHorizantalObject.transform.Rotate(0f, 90f, 0f, Space.World);
+            float currentYRotation = lastHorizantalObject.transform.eulerAngles.y;
+            float newYRotation = currentYRotation + 90f;
+            newYRotation = Mathf.Round(newYRotation / 90f) * 90f;
+            lastHorizantalObject.transform.eulerAngles = new Vector3(0, newYRotation, 0);
         }
 
         if (lastHorizantalObject != null && scroll != 0f) {
