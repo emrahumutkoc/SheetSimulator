@@ -8,17 +8,26 @@ public class NPCController : MonoBehaviour {
 
     private bool isAgentNavigating = false;
 
-    private void Start() {
+    private void Awake() {
         agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.X)) {
-            isAgentNavigating = !isAgentNavigating;
-        }   
+        /*if (Input.GetMouseButtonDown(0)) {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (isAgentNavigating) {
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit)) {
+                agent.SetDestination(hit.point);
+            }
+        }*/
+    }
 
+
+    public void SetDestination(Vector3 position) {
+
+        if (Physics.Raycast(position,Vector3.down, out RaycastHit hit)) {
+            agent.SetDestination(hit.point);
         }
     }
 }

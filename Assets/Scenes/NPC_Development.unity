@@ -135,7 +135,8 @@ GameObject:
   - component: {fileID: 61188846}
   - component: {fileID: 61188845}
   - component: {fileID: 61188844}
-  m_Layer: 0
+  - component: {fileID: 61188847}
+  m_Layer: 8
   m_Name: Obs (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,6 +229,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61188842}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &61188847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61188842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &129212917
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +260,8 @@ GameObject:
   - component: {fileID: 129212921}
   - component: {fileID: 129212920}
   - component: {fileID: 129212919}
-  m_Layer: 0
+  - component: {fileID: 129212922}
+  m_Layer: 8
   m_Name: Obs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,6 +354,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129212917}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &129212922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129212917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &352405825
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +385,8 @@ GameObject:
   - component: {fileID: 352405829}
   - component: {fileID: 352405828}
   - component: {fileID: 352405827}
-  m_Layer: 0
+  - component: {fileID: 352405830}
+  m_Layer: 8
   m_Name: Obs (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,6 +479,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352405825}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &352405830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352405825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &389001901
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +510,8 @@ GameObject:
   - component: {fileID: 389001905}
   - component: {fileID: 389001904}
   - component: {fileID: 389001903}
-  m_Layer: 0
+  - component: {fileID: 389001906}
+  m_Layer: 8
   m_Name: Obs (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,6 +604,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389001901}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &389001906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389001901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &736064049
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +636,7 @@ GameObject:
   - component: {fileID: 736064052}
   - component: {fileID: 736064051}
   - component: {fileID: 736064050}
+  - component: {fileID: 736064055}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -673,6 +754,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &736064055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736064049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2dda18f5bca4ea42b0bb4860022e316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &972273752
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +778,8 @@ GameObject:
   - component: {fileID: 972273756}
   - component: {fileID: 972273755}
   - component: {fileID: 972273754}
-  m_Layer: 0
+  - component: {fileID: 972273757}
+  m_Layer: 8
   m_Name: Obs (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -778,6 +872,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972273752}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &972273757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972273752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &1091508839
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +903,8 @@ GameObject:
   - component: {fileID: 1091508843}
   - component: {fileID: 1091508842}
   - component: {fileID: 1091508841}
-  m_Layer: 0
+  - component: {fileID: 1091508844}
+  m_Layer: 8
   m_Name: Obs (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,6 +997,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091508839}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1091508844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091508839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &1317711854
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,7 +1028,8 @@ GameObject:
   - component: {fileID: 1317711858}
   - component: {fileID: 1317711857}
   - component: {fileID: 1317711856}
-  m_Layer: 0
+  - component: {fileID: 1317711859}
+  m_Layer: 8
   m_Name: Obs (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -988,6 +1122,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317711854}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1317711859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317711854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &1340926408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,7 +1498,8 @@ GameObject:
   - component: {fileID: 1564931740}
   - component: {fileID: 1564931739}
   - component: {fileID: 1564931738}
-  m_Layer: 0
+  - component: {fileID: 1564931741}
+  m_Layer: 8
   m_Name: Obs (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1438,6 +1592,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564931736}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1564931741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564931736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &1593020389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,7 +1988,8 @@ GameObject:
   - component: {fileID: 2109176249}
   - component: {fileID: 2109176248}
   - component: {fileID: 2109176247}
-  m_Layer: 0
+  - component: {fileID: 2109176250}
+  m_Layer: 8
   m_Name: Obs (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1908,6 +2082,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109176245}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2109176250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109176245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

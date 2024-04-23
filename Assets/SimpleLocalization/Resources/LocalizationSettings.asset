@@ -17,6 +17,9 @@ MonoBehaviour:
   - Name: Menu
     Id: 0
     TextAsset: {fileID: 4900000, guid: cf55c05861a4d264a855e6349bef560e, type: 3}
+  - Name: Computer
+    Id: 1006498334
+    TextAsset: {fileID: 4900000, guid: efc8b55eebee50b48be0ae9b830d2b50, type: 3}
   - Name: Options
     Id: 1887309397
     TextAsset: {fileID: 4900000, guid: 77ebc1caa0528fc41aea0929e2052959, type: 3}

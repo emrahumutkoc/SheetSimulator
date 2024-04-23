@@ -15,25 +15,13 @@ public class EscMenuManager : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-
-            int count = UnityEngine.SceneManagement.SceneManager.sceneCount;
-            bool isOptionSceneActive = false;
-            for (int i = 0; i < count; i++) {
-                Scene scene = UnityEngine.SceneManagement.SceneManager.GetSceneAt(i);
-                if (scene.isLoaded && scene.buildIndex == 1) {
-                    isOptionSceneActive = true;
-                }
-            }
-
-            if (!isOptionSceneActive) {
-                escMenuGameObject.SetActive(!escMenuGameObject.activeSelf);
-                if (escMenuGameObject.activeSelf) {
-                    playerCam.SetCamLocked();
-                    Time.timeScale = 0;
-                } else {
-                    playerCam.SetCamFree();
-                    Time.timeScale = 1;
-                }
+            escMenuGameObject.SetActive(!escMenuGameObject.activeSelf);
+            if (escMenuGameObject.activeSelf) {
+                playerCam.SetCamLocked();
+                Time.timeScale = 0;
+            } else {
+                playerCam.SetCamFree();
+                Time.timeScale = 1;
             }
         }        
     }

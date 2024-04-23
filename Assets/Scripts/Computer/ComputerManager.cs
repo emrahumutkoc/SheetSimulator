@@ -10,6 +10,7 @@ public class ComputerManager : MonoBehaviour {
     [SerializeField] private Transform orientation;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private PlayerCam playerCam;
+    [SerializeField] private GameObject escMenuObject;
     private bool isZooming = false;
     private bool isZoomed = false;
     private Coroutine currentZoomCoroutine;
@@ -26,7 +27,7 @@ public class ComputerManager : MonoBehaviour {
     }
 
     private void OnMouseDown() {
-        if (!isZoomed) {
+        if (!isZoomed && !escMenuObject.activeSelf) {
             SetPlayerPosition();
             playerCam.SetDefaultFOV();
 
@@ -76,5 +77,9 @@ public class ComputerManager : MonoBehaviour {
 
     private void SetPlayerPosition() {
         player.position = new Vector3(playerPlacementPosition.position.x, 1, playerPlacementPosition.position.z);
+    }
+
+    public bool GetIsZoomed() {
+        return isZoomed;
     }
 }

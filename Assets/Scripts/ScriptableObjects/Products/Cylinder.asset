@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6063d3a1f873e648a6cd355842af498, type: 3}
+  m_Name: Cylinder
+  m_EditorClassIdentifier: 
+  productName: Cylinder
+  description: Silindir
+  price: 20
+  image: test
+  productPrefab: {fileID: 3610990330153743933, guid: 6968e67d93372b442a8dd79ed352154d, type: 3}

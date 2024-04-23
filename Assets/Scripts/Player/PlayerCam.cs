@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class PlayerCam : MonoBehaviour {
     [SerializeField] private GameObject inventory;
+    [SerializeField] private GameObject crosshair;
 
     public float sensX;
     public float sensY;
@@ -58,12 +59,14 @@ public class PlayerCam : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         camLocked = true;
+        crosshair.SetActive(false);
     }
 
     public void SetCamFree() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         camLocked = false;
+        crosshair.SetActive(true);
     }
 
     public void SetCamFreeWithoutRotation() {
@@ -72,6 +75,7 @@ public class PlayerCam : MonoBehaviour {
         camLocked = false;
         xRotation = 0;
         yRotation = 0;
+        crosshair.SetActive(true);
     }
 
     public void DoFov(float endValue) {
@@ -100,5 +104,9 @@ public class PlayerCam : MonoBehaviour {
 
     public void InvertYAxis(bool invert) {
         sensY = Mathf.Abs(sensY) * (invert ? -1 : 1);
+    }
+
+    public bool GetCamLocked() {
+        return camLocked;
     }
 }

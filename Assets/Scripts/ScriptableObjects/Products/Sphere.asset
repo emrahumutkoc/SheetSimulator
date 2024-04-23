@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6063d3a1f873e648a6cd355842af498, type: 3}
+  m_Name: Sphere
+  m_EditorClassIdentifier: 
+  productName: Sphere
+  description: "K\xFCre"
+  price: 25
+  image: test
+  productPrefab: {fileID: 2987242060426220364, guid: 80a1e7d9e60a4404998b2aae5a0c949a, type: 3}

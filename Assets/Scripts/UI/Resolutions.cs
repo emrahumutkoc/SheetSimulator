@@ -16,7 +16,7 @@ public class Resolutions : MonoBehaviour {
     private int currentResolutionIndex = 0;
     [HideInInspector] public Resolution resolution;
     private void Start() {
-        // Screen.SetResolution(1920, 1080, true);
+        Screen.SetResolution(1920, 1080, true);
         resolutions = Screen.resolutions;
         filteredResolutions = new List<Resolution>();
 
