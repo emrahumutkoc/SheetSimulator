@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6063d3a1f873e648a6cd355842af498, type: 3}
-  m_Name: Cube
+  m_Name: Tuvalet-1
   m_EditorClassIdentifier: 
-  productName: Cube
-  description: "K\xFCp"
-  price: 550
+  productName: Ultra Lux Toilet
+  description: dasdasda
+  price: 4444
   image: test
-  productPrefab: {fileID: 1780964006093095082, guid: 31381b2ce2a57ee4087a8a498880da67, type: 3}
+  productPrefab: {fileID: 2987242060426220364, guid: 80a1e7d9e60a4404998b2aae5a0c949a, type: 3}
   maxOrderableQuantity: 10

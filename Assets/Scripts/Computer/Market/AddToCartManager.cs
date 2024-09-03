@@ -15,8 +15,6 @@ public class AddToCartManager : MonoBehaviour {
     private Product product;
 
     private void Start() {
-        Debug.Log("the product; " + product);
-
         if (product != null) {
             nameText.text = product.name;
             descriptionText.text = product.description;
@@ -53,6 +51,7 @@ public class AddToCartManager : MonoBehaviour {
     }
 
     public void OnAddToCart() {
-        marketManager.AddToCart(product);
+        CartItem cartItem = new CartItem(product, int.Parse(currentQuantityText.text));
+        marketManager.AddToCart(cartItem);
     }
 }

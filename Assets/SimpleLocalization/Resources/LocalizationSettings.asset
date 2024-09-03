@@ -23,4 +23,7 @@ MonoBehaviour:
   - Name: Options
     Id: 1887309397
     TextAsset: {fileID: 4900000, guid: 77ebc1caa0528fc41aea0929e2052959, type: 3}
+  - Name: Cart
+    Id: 1267301300
+    TextAsset: {fileID: 4900000, guid: 82d423c97885c62478bdf6dd27d0a5e3, type: 3}
   SaveFolder: {fileID: 102900000, guid: c392831e85f928548b8494fefd912562, type: 3}

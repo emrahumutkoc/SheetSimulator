@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productName: Sphere
   description: "K\xFCre"
-  price: 25
+  price: 150
   image: test
   productPrefab: {fileID: 2987242060426220364, guid: 80a1e7d9e60a4404998b2aae5a0c949a, type: 3}
+  maxOrderableQuantity: 10

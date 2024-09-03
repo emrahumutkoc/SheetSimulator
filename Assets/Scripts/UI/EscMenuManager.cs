@@ -7,6 +7,7 @@ public class EscMenuManager : MonoBehaviour {
 
     [SerializeField] private GameObject escMenuGameObject;
     [SerializeField] private PlayerCam playerCam;
+    [SerializeField] private ComputerManager computerManager; 
     private void Awake() {
         if (escMenuGameObject.activeSelf) {
             escMenuGameObject.SetActive(false);
@@ -20,7 +21,9 @@ public class EscMenuManager : MonoBehaviour {
                 playerCam.SetCamLocked();
                 Time.timeScale = 0;
             } else {
-                playerCam.SetCamFree();
+                if (!computerManager.GetIsZoomed()) {
+                    playerCam.SetCamFree();
+                }
                 Time.timeScale = 1;
             }
         }        

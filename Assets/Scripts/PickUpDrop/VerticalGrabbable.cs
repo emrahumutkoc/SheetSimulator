@@ -154,6 +154,10 @@ public class VerticalGrabbable : MonoBehaviour {
             meshRenderer.material = ghostMaterialInvalid;
         }
     }
+
+    public void SetCameraTransform(Transform tr) {
+        cameraPositionTransform = tr;
+    }
 }
 
 public enum ReplacementDirection {
